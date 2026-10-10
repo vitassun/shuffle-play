@@ -1,0 +1,90 @@
+name: Build iOS IPA
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build ShufflePlay IPA
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode Version
+        run: |
+          sudo xcode-select -s /Applications/Xcode_15.4.app || sudo xcode-select -s /Applications/Xcode_16.0.app || true
+          xcodebuild -version
+
+      - name: Install XcodeGen and generate project
+        run: |
+          brew install xcodegen
+          xcodegen generate
+
+      - name: Build iOS Application
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project ShufflePlay.xcodeproj \
+            -scheme ShufflePlay \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
+
+      - name: Package IPA
+        run: |
+          APP_PATH="build/DerivedData/Build/Products/Release-iphoneos/ShufflePlay.app"
+          if [ ! -d "$APP_PATH" ]; then
+            echo "Error: ShufflePlay.app not found at $APP_PATH"
+            exit 1
+          fi
+
+          mkdir -p build/Payload
+          cp -R "$APP_PATH" build/Payload/
+          cd build
+          zip -qr ShufflePlay.ipa Payload
+          cd ..
+
+          ls -lh build/ShufflePlay.ipa
+          shasum -a 256 build/ShufflePlay.ipa
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ShufflePlay-ipa
+          path: build/ShufflePlay.ipa
+          retention-days: 30
+
+      - name: Create GitHub Release and Upload IPA
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: ShufflePlay v1.0.${{ github.run_number }}
+          body: |
+            ### 🔀 ShufflePlay iOS App 发布
+
+            #### ✨ 主要特性：
+            - **视频批量导入**：支持从系统相册及“文件”App 导入多个视频。
+            - **全随机打乱拼接**：一键将所有视频顺序随机打乱，并拼接成一个完整的大视频。
+            - **内置多功能播放器**：支持快进/快退 15 秒、循环播放、精确进度条拖动。
+            - **锁屏 & 后台声音播放**：锁屏或切换至后台后声音继续播放，锁屏界面展示视频信息及控制中心组件。
+            - **智能睡眠定时器**：支持 15/30/45/60 分钟、自定义分钟及“播完即停”，定时结束前 10 秒音量平滑渐弱。
+
+            #### 📲 安装方式：
+            - 支持使用 **巨魔商店 (TrollStore)** 直接免越狱安装。
+            - 支持使用 **AltStore / SideStore / 猩红 (Scarlet) / Sideloadly / 爱思助手** 个人自签名安装。
+          files: build/ShufflePlay.ipa
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
