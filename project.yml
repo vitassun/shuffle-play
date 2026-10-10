@@ -3,6 +3,17 @@ options:
   bundleIdPrefix: com.vitassun
   deploymentTarget:
     iOS: "16.0"
+
+schemes:
+  ShufflePlay:
+    build:
+      targets:
+        ShufflePlay: all
+    run:
+      config: Debug
+    archive:
+      config: Release
+
 targets:
   ShufflePlay:
     type: application
@@ -10,8 +21,6 @@ targets:
     deploymentTarget: "16.0"
     sources:
       - path: ShufflePlay
-    info:
-      path: ShufflePlay/Resources/Info.plist
     settings:
       base:
         PRODUCT_NAME: ShufflePlay
@@ -26,3 +35,4 @@ targets:
         CODE_SIGNING_REQUIRED: NO
         CODE_SIGNING_ALLOWED: NO
         CODE_SIGN_IDENTITY: ""
+        AD_HOC_CODE_SIGNING_ALLOWED: YES

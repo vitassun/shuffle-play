@@ -28,6 +28,7 @@ jobs:
         run: |
           brew install xcodegen
           xcodegen generate
+          xcodebuild -list -project ShufflePlay.xcodeproj
 
       - name: Build iOS Application
         run: |
@@ -36,17 +37,27 @@ jobs:
             -project ShufflePlay.xcodeproj \
             -scheme ShufflePlay \
             -configuration Release \
-            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
             -derivedDataPath build/DerivedData \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGN_IDENTITY=""
+            CODE_SIGN_IDENTITY="" \
+            AD_HOC_CODE_SIGNING_ALLOWED=YES 2>&1 | tee build.log || {
+              echo "=== XCODEBUILD FAILED - LAST 100 LINES ==="
+              tail -n 100 build.log
+              echo "### Build Failed" >> $GITHUB_STEP_SUMMARY
+              echo '```text' >> $GITHUB_STEP_SUMMARY
+              tail -n 60 build.log >> $GITHUB_STEP_SUMMARY
+              echo '```' >> $GITHUB_STEP_SUMMARY
+              exit 1
+            }
 
       - name: Package IPA
         run: |
           APP_PATH="build/DerivedData/Build/Products/Release-iphoneos/ShufflePlay.app"
           if [ ! -d "$APP_PATH" ]; then
             echo "Error: ShufflePlay.app not found at $APP_PATH"
+            find build/DerivedData -name "*.app"
             exit 1
           fi
 
