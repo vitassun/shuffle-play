@@ -68,18 +68,28 @@ final class MergeViewModel: ObservableObject {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             let group = DispatchGroup()
             var importedItems: [VideoItem] = []
+            let tempDir = FileManager.default.temporaryDirectory
 
-            for item in items {
+            for (index, item) in items.enumerated() {
                 group.enter()
-                item.loadTransferable(type: MovieFileTransferable.self) { result in
+                // 使用官方推荐的原生 loadFileRepresentation 方法
+                item.loadFileRepresentation(forTypeIdentifier: UTType.movie.identifier) { url, error in
                     defer { group.leave() }
-                    switch result {
-                    case .success(let movieFile):
-                        if let movieFile = movieFile,
-                           let videoItem = self?.createVideoItem(from: movieFile.url, originalFilename: movieFile.suggestedFilename) {
-                            importedItems.append(videoItem)
+                    if let url = url {
+                        let filename = url.lastPathComponent
+                        let targetURL = tempDir.appendingPathComponent("\(UUID().uuidString)_\(filename)")
+                        do {
+                            if FileManager.default.fileExists(atPath: targetURL.path) {
+                                try FileManager.default.removeItem(at: targetURL)
+                            }
+                            try FileManager.default.copyItem(at: url, to: targetURL)
+                            if let videoItem = self?.createVideoItem(from: targetURL, originalFilename: "相册视频_\(index + 1)") {
+                                importedItems.append(videoItem)
+                            }
+                        } catch {
+                            print("[MergeVM] Failed copying picked photo video: \(error)")
                         }
-                    case .failure(let error):
+                    } else if let error = error {
                         print("[MergeVM] Photo pick error: \(error)")
                     }
                 }
@@ -106,7 +116,6 @@ final class MergeViewModel: ObservableObject {
             var importedItems: [VideoItem] = []
 
             for url in urls {
-                // 安全作用域访问
                 let shouldStopAccessing = url.startAccessingSecurityScopedResource()
                 defer {
                     if shouldStopAccessing {
@@ -114,7 +123,6 @@ final class MergeViewModel: ObservableObject {
                     }
                 }
 
-                // 复制到 App 临时目录以防外部释放
                 let tempDir = FileManager.default.temporaryDirectory
                 let targetURL = tempDir.appendingPathComponent(UUID().uuidString + "_" + url.lastPathComponent)
 
@@ -166,7 +174,6 @@ final class MergeViewModel: ObservableObject {
 
                 switch result {
                 case .success(let output):
-                    let documentsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
                     let relativePath = "ExportedVideos/\(output.outputURL.lastPathComponent)"
                     let fileSize = (try? FileManager.default.attributesOfItem(atPath: output.outputURL.path)[.size] as? Int64) ?? 0
 
@@ -179,9 +186,7 @@ final class MergeViewModel: ObservableObject {
                         fileSize: fileSize
                     )
 
-                    // 保存到历史记录
                     LibraryViewModel.shared.addExportedVideo(exported)
-
                     self.latestExportedVideo = exported
                     self.showSuccessSheet = true
 
@@ -214,7 +219,6 @@ final class MergeViewModel: ObservableObject {
 
         let fileSize = (try? FileManager.default.attributesOfItem(atPath: url.path)[.size] as? Int64) ?? 0
 
-        // 缩略图生成
         var thumbnail: UIImage? = nil
         let generator = AVAssetImageGenerator(asset: asset)
         generator.appliesPreferredTrackTransform = true
@@ -232,23 +236,5 @@ final class MergeViewModel: ObservableObject {
             fileSize: fileSize,
             thumbnail: thumbnail
         )
-    }
-}
-
-// MARK: - Transferable 用于 PhotosPicker
-struct MovieFileTransferable: Transferable {
-    let url: URL
-    let suggestedFilename: String
-
-    static var transferRepresentation: some TransferRepresentation {
-        FileRepresentation(contentType: .movie) { movie in
-            SentTransferredFile(movie.url)
-        } importing: { received in
-            let tempDir = FileManager.default.temporaryDirectory
-            let ext = received.file.pathExtension.isEmpty ? "mp4" : received.file.pathExtension
-            let dest = tempDir.appendingPathComponent("\(UUID().uuidString).\(ext)")
-            try FileManager.default.copyItem(at: received.file, to: dest)
-            return MovieFileTransferable(url: dest, suggestedFilename: received.file.lastPathComponent)
-        }
     }
 }

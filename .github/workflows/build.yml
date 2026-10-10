@@ -31,6 +31,7 @@ jobs:
 
       - name: Build iOS Application
         run: |
+          set -o pipefail
           xcodebuild build \
             -project ShufflePlay.xcodeproj \
             -scheme ShufflePlay \
@@ -40,7 +41,21 @@ jobs:
             CODE_SIGN_IDENTITY="-" \
             CODE_SIGN_STYLE="Manual" \
             DEVELOPMENT_TEAM="" \
-            COMPILER_INDEX_STORE_ENABLE=NO
+            COMPILER_INDEX_STORE_ENABLE=NO 2>&1 | tee build.log
+
+      - name: Report Build Log on Failure
+        if: failure()
+        run: |
+          echo "=== BUILD LOG FAILURE (LAST 100 LINES) ==="
+          tail -n 100 build.log || true
+          git checkout -b build-log || git checkout build-log
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          echo "=== BUILD LOG ===" > log.txt
+          cat build.log >> log.txt
+          git add log.txt
+          git commit -m "build log from run ${{ github.run_number }}" || true
+          git push origin build-log -f || true
 
       - name: Package IPA
         run: |

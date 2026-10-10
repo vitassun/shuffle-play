@@ -7,7 +7,6 @@ struct MergeView: View {
     @Binding var selectedTab: Int
 
     @State private var showDocumentPicker = false
-    @State private var showPhotosPicker = false
 
     var body: some View {
         NavigationStack {
@@ -47,11 +46,6 @@ struct MergeView: View {
                     mergeVM.handlePickedFileURLs(urls)
                 }
             }
-            .photosPicker(
-                isPresented: $showPhotosPicker,
-                selection: $mergeVM.photoPickerItems,
-                matching: .videos
-            )
             .onChange(of: mergeVM.photoPickerItems) { _ in
                 mergeVM.handlePickedPhotos()
             }
@@ -122,9 +116,10 @@ struct MergeView: View {
             }
 
             HStack(spacing: 16) {
-                Button {
-                    showPhotosPicker = true
-                } label: {
+                PhotosPicker(
+                    selection: $mergeVM.photoPickerItems,
+                    matching: .videos
+                ) {
                     Label("相册导入", systemImage: "photo.on.rectangle.angled")
                         .frame(maxWidth: .infinity)
                 }
@@ -197,9 +192,10 @@ struct MergeView: View {
     private var bottomActionView: some View {
         VStack(spacing: 10) {
             HStack(spacing: 12) {
-                Button {
-                    showPhotosPicker = true
-                } label: {
+                PhotosPicker(
+                    selection: $mergeVM.photoPickerItems,
+                    matching: .videos
+                ) {
                     Label("添加相册", systemImage: "plus")
                         .frame(maxWidth: .infinity)
                 }
@@ -314,7 +310,7 @@ struct MergeView: View {
                     Button {
                         mergeVM.showSuccessSheet = false
                         playerVM.loadVideo(url: video.fileURL, title: video.filename)
-                        selectedTab = 1 // 切换至播放器 Tab
+                        selectedTab = 1
                     } label: {
                         Label("立即播放大视频", systemImage: "play.circle.fill")
                             .frame(maxWidth: .infinity)
