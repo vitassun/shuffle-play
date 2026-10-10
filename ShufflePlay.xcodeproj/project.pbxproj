@@ -7,53 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FDA5B9CBF7BD449CAAFE5B8B /* ShufflePlayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B654F38584DAD84DC655F /* ShufflePlayApp.swift */; };
-		EC0796FAF29B4BB9AC546A7B /* ExportedVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E8D251A2D04385BEAED2BF /* ExportedVideo.swift */; };
-		D7F4AA5E17E44A488B44B730 /* VideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD41099A570451098A96941 /* VideoItem.swift */; };
-		69EFE4A0F53948DF88D4F6DF /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = EA0F8EEBFD65431F9DF492F7 /* Assets.xcassets */; };
-		DDDCEC2AC0F34491B245B3D5 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79597479AA414B68BCDB11B0 /* AudioSessionManager.swift */; };
-		F99BCAE5849E4A108BF8AE88 /* NowPlayingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A62686BE314158B15E6B02 /* NowPlayingManager.swift */; };
-		DB2E29E7F5874771A14B35AB /* SleepTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F487039175564B60A6B411BC /* SleepTimerManager.swift */; };
-		A4D244C77AB94D79AE58AC06 /* VideoMergerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0C4EABA1948A79217FAB5 /* VideoMergerService.swift */; };
-		5E5B3626BD9647BCAF71F8A2 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D22E09A6134214B226F311 /* LibraryViewModel.swift */; };
-		AED67544D733400996216168 /* MergeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE05B240C54C0A97FFD856 /* MergeViewModel.swift */; };
-		19602F9D365043DBA3E9BB45 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422E8EA1C3864BD5B614F8D8 /* PlayerViewModel.swift */; };
-		C71BE189BE514CE69C1721D0 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90957E6E08E44E01B92A82B0 /* DocumentPicker.swift */; };
-		D84B6538DCC641E291C44BC2 /* SleepTimerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8A4EC8D9A4BC58052BB2F /* SleepTimerSheet.swift */; };
-		1CCD4443F7E6441990E432BA /* VideoPlayerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D20AEC649940D1BB4FE5D0 /* VideoPlayerRepresentable.swift */; };
-		9BC8DCCF06D24388B7E5A72C /* VideoThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BB8104F4B44B7983E03C3C /* VideoThumbnailView.swift */; };
-		575C8875435546FE956A4F18 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD870737F4154AE29C92C0C2 /* LibraryView.swift */; };
-		01BC5B9225984C9F8F91451F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DE050EA5DE46B682A01B79 /* MainTabView.swift */; };
-		FCAAD3CB1ECC4B1BAF708896 /* MergeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110E841322774E62974AD535 /* MergeView.swift */; };
-		A33D1F46C73842738E6C9F1D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528F9AEE24664E75ADFE444B /* PlayerView.swift */; };
+		F409AC0130C946ABA66304A2 /* ShufflePlayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D7E6297314F3E87BF445E /* ShufflePlayApp.swift */; };
+		D31F27B817644DA4ACBC934B /* ExportedVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69AF21D0EB045CBADEF5831 /* ExportedVideo.swift */; };
+		AF7443DA290B4DA1A94EB9B5 /* VideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284F326F47F44B9874A5159 /* VideoItem.swift */; };
+		1A8DB7B5AF0642A1B8C81F5A /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 4DEFFB45593E49AAB416BEE4 /* Assets.xcassets */; };
+		2136A0D4518C4F71A96E40BE /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42219C5C19934676B7BA214B /* AudioSessionManager.swift */; };
+		5F423D49E4C7446998297361 /* NowPlayingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463038798AD4F2C9EC5CA50 /* NowPlayingManager.swift */; };
+		D3F206B00B4343E3BC2792A3 /* SleepTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A505D9CD64D2CA636F549 /* SleepTimerManager.swift */; };
+		C8CB81D4076042DEBAD3F30A /* VideoMergerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25271CBFB34B128036AECE /* VideoMergerService.swift */; };
+		821083FD5AD34058A4B2489C /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3008421DF641B5B8B5F88B /* LibraryViewModel.swift */; };
+		EA33D89BCB3D4EDCBFC773C8 /* MergeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE493B15C4417B8466C60D /* MergeViewModel.swift */; };
+		9B453F52AFD0414C9E85E364 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC7459C60E243CBB4DAD709 /* PlayerViewModel.swift */; };
+		7E206AB9221240F89EDE3005 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA79B62F56C464FADF9D73D /* DocumentPicker.swift */; };
+		CAD7E03FDBF64F1F9EE3C17E /* SleepTimerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4A72754B9480DA407E799 /* SleepTimerSheet.swift */; };
+		213968ED56014C31A7742655 /* VideoPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECE23695DB4D1C9597D050 /* VideoPickerSheet.swift */; };
+		DD449027361D427E8E82F329 /* VideoPlayerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626BE9B67174F0B832D3159 /* VideoPlayerRepresentable.swift */; };
+		C22D2D47AAF24529856E27B3 /* VideoThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA2F6DF6757441FA25F32FC /* VideoThumbnailView.swift */; };
+		A6606CF95CDD41A8A33317BA /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65360EF29514C88AF3ADABF /* LibraryView.swift */; };
+		2821C15503AC49AAB5FED313 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3913E26F2AC44FDB8A3EC408 /* MainTabView.swift */; };
+		3DCAE49055434EB3A96FE7C1 /* MergeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B6F9EB44B46CC8758351C /* MergeView.swift */; };
+		A09EC98E8C4A4A28AD906E4B /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CEDCE973FB46F7852E940F /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B9CAF38C34564E9CA865D7D7 /* ShufflePlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShufflePlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA0F8EEBFD65431F9DF492F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EC55F540BE1A43C2A7204EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		173B654F38584DAD84DC655F /* ShufflePlayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/ShufflePlayApp.swift"; sourceTree = "<group>"; };
-		A9E8D251A2D04385BEAED2BF /* ExportedVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/ExportedVideo.swift"; sourceTree = "<group>"; };
-		7BD41099A570451098A96941 /* VideoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/VideoItem.swift"; sourceTree = "<group>"; };
-		79597479AA414B68BCDB11B0 /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/AudioSessionManager.swift"; sourceTree = "<group>"; };
-		A9A62686BE314158B15E6B02 /* NowPlayingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/NowPlayingManager.swift"; sourceTree = "<group>"; };
-		F487039175564B60A6B411BC /* SleepTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/SleepTimerManager.swift"; sourceTree = "<group>"; };
-		C4D0C4EABA1948A79217FAB5 /* VideoMergerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/VideoMergerService.swift"; sourceTree = "<group>"; };
-		32D22E09A6134214B226F311 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/LibraryViewModel.swift"; sourceTree = "<group>"; };
-		57EE05B240C54C0A97FFD856 /* MergeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/MergeViewModel.swift"; sourceTree = "<group>"; };
-		422E8EA1C3864BD5B614F8D8 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/PlayerViewModel.swift"; sourceTree = "<group>"; };
-		90957E6E08E44E01B92A82B0 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/DocumentPicker.swift"; sourceTree = "<group>"; };
-		72A8A4EC8D9A4BC58052BB2F /* SleepTimerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/SleepTimerSheet.swift"; sourceTree = "<group>"; };
-		66D20AEC649940D1BB4FE5D0 /* VideoPlayerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/VideoPlayerRepresentable.swift"; sourceTree = "<group>"; };
-		23BB8104F4B44B7983E03C3C /* VideoThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/VideoThumbnailView.swift"; sourceTree = "<group>"; };
-		DD870737F4154AE29C92C0C2 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/LibraryView.swift"; sourceTree = "<group>"; };
-		35DE050EA5DE46B682A01B79 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/MainTabView.swift"; sourceTree = "<group>"; };
-		110E841322774E62974AD535 /* MergeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/MergeView.swift"; sourceTree = "<group>"; };
-		528F9AEE24664E75ADFE444B /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/PlayerView.swift"; sourceTree = "<group>"; };
+		F21BF54D37874E688DD5F9A6 /* ShufflePlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShufflePlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DEFFB45593E49AAB416BEE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		78F95BA5CD7F4AF3BFF6C20F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E52D7E6297314F3E87BF445E /* ShufflePlayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/ShufflePlayApp.swift"; sourceTree = "<group>"; };
+		E69AF21D0EB045CBADEF5831 /* ExportedVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/ExportedVideo.swift"; sourceTree = "<group>"; };
+		2284F326F47F44B9874A5159 /* VideoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/VideoItem.swift"; sourceTree = "<group>"; };
+		42219C5C19934676B7BA214B /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/AudioSessionManager.swift"; sourceTree = "<group>"; };
+		9463038798AD4F2C9EC5CA50 /* NowPlayingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/NowPlayingManager.swift"; sourceTree = "<group>"; };
+		2A7A505D9CD64D2CA636F549 /* SleepTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/SleepTimerManager.swift"; sourceTree = "<group>"; };
+		0A25271CBFB34B128036AECE /* VideoMergerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/VideoMergerService.swift"; sourceTree = "<group>"; };
+		2A3008421DF641B5B8B5F88B /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/LibraryViewModel.swift"; sourceTree = "<group>"; };
+		64CE493B15C4417B8466C60D /* MergeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/MergeViewModel.swift"; sourceTree = "<group>"; };
+		DFC7459C60E243CBB4DAD709 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/PlayerViewModel.swift"; sourceTree = "<group>"; };
+		6BA79B62F56C464FADF9D73D /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/DocumentPicker.swift"; sourceTree = "<group>"; };
+		D1E4A72754B9480DA407E799 /* SleepTimerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/SleepTimerSheet.swift"; sourceTree = "<group>"; };
+		9FECE23695DB4D1C9597D050 /* VideoPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/VideoPickerSheet.swift"; sourceTree = "<group>"; };
+		1626BE9B67174F0B832D3159 /* VideoPlayerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/VideoPlayerRepresentable.swift"; sourceTree = "<group>"; };
+		EBA2F6DF6757441FA25F32FC /* VideoThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/VideoThumbnailView.swift"; sourceTree = "<group>"; };
+		A65360EF29514C88AF3ADABF /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/LibraryView.swift"; sourceTree = "<group>"; };
+		3913E26F2AC44FDB8A3EC408 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/MainTabView.swift"; sourceTree = "<group>"; };
+		351B6F9EB44B46CC8758351C /* MergeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/MergeView.swift"; sourceTree = "<group>"; };
+		C1CEDCE973FB46F7852E940F /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/PlayerView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B37EFA2ABD2F4CD28E604831 /* Frameworks */ = {
+		88A87268BBC14DC380DA7ACC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,45 +65,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A9C33643B2CA4FBCBD89975D = {
+		0488B2A236E04DE2BD56931F = {
 			isa = PBXGroup;
 			children = (
-				6BACAE0474E6486695109FC2 /* ShufflePlay */,
-				E29B0A833ECA4510988C8939 /* Products */,
+				0BD5C627D1614B0B90592EFF /* ShufflePlay */,
+				02ADCFBF0A6A48A58311514D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E29B0A833ECA4510988C8939 /* Products */ = {
+		02ADCFBF0A6A48A58311514D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B9CAF38C34564E9CA865D7D7 /* ShufflePlay.app */,
+				F21BF54D37874E688DD5F9A6 /* ShufflePlay.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6BACAE0474E6486695109FC2 /* ShufflePlay */ = {
+		0BD5C627D1614B0B90592EFF /* ShufflePlay */ = {
 			isa = PBXGroup;
 			children = (
-				173B654F38584DAD84DC655F /* ShufflePlayApp.swift */,
-				A9E8D251A2D04385BEAED2BF /* ExportedVideo.swift */,
-				7BD41099A570451098A96941 /* VideoItem.swift */,
-				EA0F8EEBFD65431F9DF492F7 /* Assets.xcassets */,
-				EC55F540BE1A43C2A7204EC7 /* Info.plist */,
-				79597479AA414B68BCDB11B0 /* AudioSessionManager.swift */,
-				A9A62686BE314158B15E6B02 /* NowPlayingManager.swift */,
-				F487039175564B60A6B411BC /* SleepTimerManager.swift */,
-				C4D0C4EABA1948A79217FAB5 /* VideoMergerService.swift */,
-				32D22E09A6134214B226F311 /* LibraryViewModel.swift */,
-				57EE05B240C54C0A97FFD856 /* MergeViewModel.swift */,
-				422E8EA1C3864BD5B614F8D8 /* PlayerViewModel.swift */,
-				90957E6E08E44E01B92A82B0 /* DocumentPicker.swift */,
-				72A8A4EC8D9A4BC58052BB2F /* SleepTimerSheet.swift */,
-				66D20AEC649940D1BB4FE5D0 /* VideoPlayerRepresentable.swift */,
-				23BB8104F4B44B7983E03C3C /* VideoThumbnailView.swift */,
-				DD870737F4154AE29C92C0C2 /* LibraryView.swift */,
-				35DE050EA5DE46B682A01B79 /* MainTabView.swift */,
-				110E841322774E62974AD535 /* MergeView.swift */,
-				528F9AEE24664E75ADFE444B /* PlayerView.swift */,
+				E52D7E6297314F3E87BF445E /* ShufflePlayApp.swift */,
+				E69AF21D0EB045CBADEF5831 /* ExportedVideo.swift */,
+				2284F326F47F44B9874A5159 /* VideoItem.swift */,
+				4DEFFB45593E49AAB416BEE4 /* Assets.xcassets */,
+				78F95BA5CD7F4AF3BFF6C20F /* Info.plist */,
+				42219C5C19934676B7BA214B /* AudioSessionManager.swift */,
+				9463038798AD4F2C9EC5CA50 /* NowPlayingManager.swift */,
+				2A7A505D9CD64D2CA636F549 /* SleepTimerManager.swift */,
+				0A25271CBFB34B128036AECE /* VideoMergerService.swift */,
+				2A3008421DF641B5B8B5F88B /* LibraryViewModel.swift */,
+				64CE493B15C4417B8466C60D /* MergeViewModel.swift */,
+				DFC7459C60E243CBB4DAD709 /* PlayerViewModel.swift */,
+				6BA79B62F56C464FADF9D73D /* DocumentPicker.swift */,
+				D1E4A72754B9480DA407E799 /* SleepTimerSheet.swift */,
+				9FECE23695DB4D1C9597D050 /* VideoPickerSheet.swift */,
+				1626BE9B67174F0B832D3159 /* VideoPlayerRepresentable.swift */,
+				EBA2F6DF6757441FA25F32FC /* VideoThumbnailView.swift */,
+				A65360EF29514C88AF3ADABF /* LibraryView.swift */,
+				3913E26F2AC44FDB8A3EC408 /* MainTabView.swift */,
+				351B6F9EB44B46CC8758351C /* MergeView.swift */,
+				C1CEDCE973FB46F7852E940F /* PlayerView.swift */,
 			);
 			path = ShufflePlay;
 			sourceTree = "<group>";
@@ -109,13 +112,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		713D9B0A9C7C439BA1803B79 /* ShufflePlay */ = {
+		4211DAC67DF1406FA394F725 /* ShufflePlay */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 31A581E84BEA40B4A636F5CB /* Build configuration list for PBXNativeTarget "ShufflePlay" */;
+			buildConfigurationList = 655A6B9D09144B4195DD6E62 /* Build configuration list for PBXNativeTarget "ShufflePlay" */;
 			buildPhases = (
-				CD8D91FE44BB4F6883E80469 /* Sources */,
-				B37EFA2ABD2F4CD28E604831 /* Frameworks */,
-				75924D8F5A264A02B6A7A86F /* Resources */,
+				2DC26A136B3943AA9E215910 /* Sources */,
+				88A87268BBC14DC380DA7ACC /* Frameworks */,
+				7A8E0432B5FF4D42AA5FC5B2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -123,24 +126,24 @@
 			);
 			name = ShufflePlay;
 			productName = ShufflePlay;
-			productReference = B9CAF38C34564E9CA865D7D7 /* ShufflePlay.app */;
+			productReference = F21BF54D37874E688DD5F9A6 /* ShufflePlay.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E1AA513C8E354A5BB388F7FC /* Project object */ = {
+		16D783292A284DFF8C077DEB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					713D9B0A9C7C439BA1803B79 = {
+					4211DAC67DF1406FA394F725 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = 8AC263176CFB4AE4AB9D527A /* Build configuration list for PBXProject "ShufflePlay" */;
+			buildConfigurationList = 4854BED1AB614A399C993ED2 /* Build configuration list for PBXProject "ShufflePlay" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -148,57 +151,58 @@
 				en,
 				Base,
 			);
-			mainGroup = A9C33643B2CA4FBCBD89975D;
-			productRefGroup = E29B0A833ECA4510988C8939 /* Products */;
+			mainGroup = 0488B2A236E04DE2BD56931F;
+			productRefGroup = 02ADCFBF0A6A48A58311514D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				713D9B0A9C7C439BA1803B79 /* ShufflePlay */,
+				4211DAC67DF1406FA394F725 /* ShufflePlay */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		75924D8F5A264A02B6A7A86F /* Resources */ = {
+		7A8E0432B5FF4D42AA5FC5B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69EFE4A0F53948DF88D4F6DF /* Assets.xcassets in Resources */,
+				1A8DB7B5AF0642A1B8C81F5A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CD8D91FE44BB4F6883E80469 /* Sources */ = {
+		2DC26A136B3943AA9E215910 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDA5B9CBF7BD449CAAFE5B8B /* ShufflePlayApp.swift in Sources */,
-				EC0796FAF29B4BB9AC546A7B /* ExportedVideo.swift in Sources */,
-				D7F4AA5E17E44A488B44B730 /* VideoItem.swift in Sources */,
-				DDDCEC2AC0F34491B245B3D5 /* AudioSessionManager.swift in Sources */,
-				F99BCAE5849E4A108BF8AE88 /* NowPlayingManager.swift in Sources */,
-				DB2E29E7F5874771A14B35AB /* SleepTimerManager.swift in Sources */,
-				A4D244C77AB94D79AE58AC06 /* VideoMergerService.swift in Sources */,
-				5E5B3626BD9647BCAF71F8A2 /* LibraryViewModel.swift in Sources */,
-				AED67544D733400996216168 /* MergeViewModel.swift in Sources */,
-				19602F9D365043DBA3E9BB45 /* PlayerViewModel.swift in Sources */,
-				C71BE189BE514CE69C1721D0 /* DocumentPicker.swift in Sources */,
-				D84B6538DCC641E291C44BC2 /* SleepTimerSheet.swift in Sources */,
-				1CCD4443F7E6441990E432BA /* VideoPlayerRepresentable.swift in Sources */,
-				9BC8DCCF06D24388B7E5A72C /* VideoThumbnailView.swift in Sources */,
-				575C8875435546FE956A4F18 /* LibraryView.swift in Sources */,
-				01BC5B9225984C9F8F91451F /* MainTabView.swift in Sources */,
-				FCAAD3CB1ECC4B1BAF708896 /* MergeView.swift in Sources */,
-				A33D1F46C73842738E6C9F1D /* PlayerView.swift in Sources */,
+				F409AC0130C946ABA66304A2 /* ShufflePlayApp.swift in Sources */,
+				D31F27B817644DA4ACBC934B /* ExportedVideo.swift in Sources */,
+				AF7443DA290B4DA1A94EB9B5 /* VideoItem.swift in Sources */,
+				2136A0D4518C4F71A96E40BE /* AudioSessionManager.swift in Sources */,
+				5F423D49E4C7446998297361 /* NowPlayingManager.swift in Sources */,
+				D3F206B00B4343E3BC2792A3 /* SleepTimerManager.swift in Sources */,
+				C8CB81D4076042DEBAD3F30A /* VideoMergerService.swift in Sources */,
+				821083FD5AD34058A4B2489C /* LibraryViewModel.swift in Sources */,
+				EA33D89BCB3D4EDCBFC773C8 /* MergeViewModel.swift in Sources */,
+				9B453F52AFD0414C9E85E364 /* PlayerViewModel.swift in Sources */,
+				7E206AB9221240F89EDE3005 /* DocumentPicker.swift in Sources */,
+				CAD7E03FDBF64F1F9EE3C17E /* SleepTimerSheet.swift in Sources */,
+				213968ED56014C31A7742655 /* VideoPickerSheet.swift in Sources */,
+				DD449027361D427E8E82F329 /* VideoPlayerRepresentable.swift in Sources */,
+				C22D2D47AAF24529856E27B3 /* VideoThumbnailView.swift in Sources */,
+				A6606CF95CDD41A8A33317BA /* LibraryView.swift in Sources */,
+				2821C15503AC49AAB5FED313 /* MainTabView.swift in Sources */,
+				3DCAE49055434EB3A96FE7C1 /* MergeView.swift in Sources */,
+				A09EC98E8C4A4A28AD906E4B /* PlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		255885C88DE34124BDDAD08A /* Debug */ = {
+		EA6C1A5D3B264D2B828D9892 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -226,7 +230,7 @@
 			};
 			name = Debug;
 		};
-		9D0CD13129B64CC5A1BC4223 /* Release */ = {
+		8710631203B64D4F8A38E534 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -248,7 +252,7 @@
 			};
 			name = Release;
 		};
-		214628B6CC6541E6B6ED03F8 /* Debug */ = {
+		97051BB25A7844C7A931D1C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -273,7 +277,7 @@
 			};
 			name = Debug;
 		};
-		6BE3CC34861647EE8225F129 /* Release */ = {
+		0FB9510755244B8EB9E1DEE5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -301,20 +305,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8AC263176CFB4AE4AB9D527A /* Build configuration list for PBXProject "ShufflePlay" */ = {
+		4854BED1AB614A399C993ED2 /* Build configuration list for PBXProject "ShufflePlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				255885C88DE34124BDDAD08A /* Debug */,
-				9D0CD13129B64CC5A1BC4223 /* Release */,
+				EA6C1A5D3B264D2B828D9892 /* Debug */,
+				8710631203B64D4F8A38E534 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		31A581E84BEA40B4A636F5CB /* Build configuration list for PBXNativeTarget "ShufflePlay" */ = {
+		655A6B9D09144B4195DD6E62 /* Build configuration list for PBXNativeTarget "ShufflePlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				214628B6CC6541E6B6ED03F8 /* Debug */,
-				6BE3CC34861647EE8225F129 /* Release */,
+				97051BB25A7844C7A931D1C5 /* Debug */,
+				0FB9510755244B8EB9E1DEE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -322,5 +326,5 @@
 /* End XCConfigurationList section */
 
 	};
-	rootObject = E1AA513C8E354A5BB388F7FC /* Project object */;
+	rootObject = 16D783292A284DFF8C077DEB /* Project object */;
 }

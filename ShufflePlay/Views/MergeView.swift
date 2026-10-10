@@ -1,11 +1,11 @@
 import SwiftUI
-import PhotosUI
 
 struct MergeView: View {
     @ObservedObject var mergeVM: MergeViewModel
     @ObservedObject var playerVM: PlayerViewModel
     @Binding var selectedTab: Int
 
+    @State private var showPhotoPicker = false
     @State private var showDocumentPicker = false
 
     var body: some View {
@@ -41,13 +41,15 @@ struct MergeView: View {
                     }
                 }
             }
-            .sheet(isPresented: $showDocumentPicker) {
-                DocumentPicker { urls in
-                    mergeVM.handlePickedFileURLs(urls)
+            .sheet(isPresented: $showPhotoPicker) {
+                VideoPickerSheet { urls in
+                    mergeVM.handlePickedFileURLs(urls, sourceName: "相册视频")
                 }
             }
-            .onChange(of: mergeVM.photoPickerItems) { _ in
-                mergeVM.handlePickedPhotos()
+            .sheet(isPresented: $showDocumentPicker) {
+                DocumentPicker { urls in
+                    mergeVM.handlePickedFileURLs(urls, sourceName: "文件视频")
+                }
             }
             .sheet(isPresented: $mergeVM.showSuccessSheet) {
                 if let video = mergeVM.latestExportedVideo {
@@ -116,10 +118,9 @@ struct MergeView: View {
             }
 
             HStack(spacing: 16) {
-                PhotosPicker(
-                    selection: $mergeVM.photoPickerItems,
-                    matching: .videos
-                ) {
+                Button {
+                    showPhotoPicker = true
+                } label: {
                     Label("相册导入", systemImage: "photo.on.rectangle.angled")
                         .frame(maxWidth: .infinity)
                 }
@@ -192,10 +193,9 @@ struct MergeView: View {
     private var bottomActionView: some View {
         VStack(spacing: 10) {
             HStack(spacing: 12) {
-                PhotosPicker(
-                    selection: $mergeVM.photoPickerItems,
-                    matching: .videos
-                ) {
+                Button {
+                    showPhotoPicker = true
+                } label: {
                     Label("添加相册", systemImage: "plus")
                         .frame(maxWidth: .infinity)
                 }

@@ -1,8 +1,6 @@
 import Foundation
-import PhotosUI
 import SwiftUI
 import AVFoundation
-import UniformTypeIdentifiers
 
 final class MergeViewModel: ObservableObject {
     @Published var selectedVideos: [VideoItem] = []
@@ -16,9 +14,6 @@ final class MergeViewModel: ObservableObject {
     // 合成成功产物
     @Published var latestExportedVideo: ExportedVideo?
     @Published var showSuccessSheet: Bool = false
-
-    // 相册选择器关联
-    @Published var photoPickerItems: [PhotosPickerItem] = []
 
     init() {}
 
@@ -56,66 +51,17 @@ final class MergeViewModel: ObservableObject {
         }
     }
 
-    // MARK: - 从相册导入
+    // MARK: - 从相册或文件导入视频文件
 
-    func handlePickedPhotos() {
-        guard !photoPickerItems.isEmpty else { return }
-        let items = photoPickerItems
-        photoPickerItems = []
-        isLoadingVideos = true
-        statusMessage = "正在读取相册视频..."
-
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            let group = DispatchGroup()
-            var importedItems: [VideoItem] = []
-            let tempDir = FileManager.default.temporaryDirectory
-
-            for (index, item) in items.enumerated() {
-                group.enter()
-                // 使用官方推荐的原生 loadFileRepresentation 方法
-                item.loadFileRepresentation(forTypeIdentifier: UTType.movie.identifier) { url, error in
-                    defer { group.leave() }
-                    if let url = url {
-                        let filename = url.lastPathComponent
-                        let targetURL = tempDir.appendingPathComponent("\(UUID().uuidString)_\(filename)")
-                        do {
-                            if FileManager.default.fileExists(atPath: targetURL.path) {
-                                try FileManager.default.removeItem(at: targetURL)
-                            }
-                            try FileManager.default.copyItem(at: url, to: targetURL)
-                            if let videoItem = self?.createVideoItem(from: targetURL, originalFilename: "相册视频_\(index + 1)") {
-                                importedItems.append(videoItem)
-                            }
-                        } catch {
-                            print("[MergeVM] Failed copying picked photo video: \(error)")
-                        }
-                    } else if let error = error {
-                        print("[MergeVM] Photo pick error: \(error)")
-                    }
-                }
-            }
-
-            group.wait()
-
-            DispatchQueue.main.async {
-                self?.isLoadingVideos = false
-                self?.statusMessage = ""
-                self?.selectedVideos.append(contentsOf: importedItems)
-            }
-        }
-    }
-
-    // MARK: - 从文件 App 导入
-
-    func handlePickedFileURLs(_ urls: [URL]) {
+    func handlePickedFileURLs(_ urls: [URL], sourceName: String = "视频") {
         guard !urls.isEmpty else { return }
         isLoadingVideos = true
-        statusMessage = "正在导入文件视频..."
+        statusMessage = "正在解析导入的视频..."
 
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             var importedItems: [VideoItem] = []
 
-            for url in urls {
+            for (idx, url) in urls.enumerated() {
                 let shouldStopAccessing = url.startAccessingSecurityScopedResource()
                 defer {
                     if shouldStopAccessing {
@@ -124,14 +70,15 @@ final class MergeViewModel: ObservableObject {
                 }
 
                 let tempDir = FileManager.default.temporaryDirectory
-                let targetURL = tempDir.appendingPathComponent(UUID().uuidString + "_" + url.lastPathComponent)
+                let targetURL = tempDir.appendingPathComponent("\(UUID().uuidString)_\(url.lastPathComponent)")
 
                 do {
                     if FileManager.default.fileExists(atPath: targetURL.path) {
                         try FileManager.default.removeItem(at: targetURL)
                     }
                     try FileManager.default.copyItem(at: url, to: targetURL)
-                    if let item = self?.createVideoItem(from: targetURL, originalFilename: url.lastPathComponent) {
+                    let displayName = "\(sourceName)_\(self?.selectedVideos.count ?? 0 + idx + 1)"
+                    if let item = self?.createVideoItem(from: targetURL, originalFilename: displayName) {
                         importedItems.append(item)
                     }
                 } catch {
